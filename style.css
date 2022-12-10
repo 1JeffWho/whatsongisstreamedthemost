@@ -1,0 +1,18 @@
+.first {
+    background-color: white;
+    size: 90%;
+    margin-bottom: -4.3%;
+}
+
+.second {
+    background-color: white;
+    margin-bottom: -4.3%;
+}
+
+button {
+    height: 10%;
+    border-radius: 12px;
+    border-width: 0px;
+    background-color: grey;
+    font-size: 4vh;
+}

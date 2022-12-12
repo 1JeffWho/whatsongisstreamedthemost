@@ -4,28 +4,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Which Song has more plays?</title>
+    <title>Which Song has more streams?</title>
 </head>
 <body>
-    <h1>Which Song has more plays?</h1>
+    <h1 style="color: #F1F1F1;">Which Song has more streams?</h1>
+
+    <h3>Score: </h3>
+    <h3 id="scoreplus"
+        style="color:green;">0</h3>
+    <h3 style="color: #272727">|</h3>
+    <h3 id="scoreminus"
+    style="color:red;">0</h3><br><br>
+
     <center>
     <iframe id="first"
             style="border-radius:12px; margin-bottom: 1%" src="-" width="90%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
     <iframe id="second"
             style="border-radius:12px" src="-" width="90%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    <h2 id="status"></h2>
+    <h2 id="status"
+        style="color: #F1F1F1"></h2>
     <button id="first_button"
             style="padding-left: 22%; padding-right: 22%">1</button>
     <button id="second_button"
-            style="padding-left: 22%; padding-right: 22%">2</button></center>
+            style="padding-left: 22%; padding-right: 22%">2</button>
+
+    <br><br>
+    <h4 id="first_streams"
+        style="padding-right: 20%"></h4>
+    <h4 id="second_streams"
+        style="padding-left: 20%"></h4>
+
     <br>
-    <h3 id="score">0</h3>
+    <body onkeypress="KeyPressCheck(event)"></body>
 
 
     <script>
-        let count = 0;
-        list_of_songs = ["https://open.spotify.com/embed/track/1087UErO9Zd3s6zvWu4FL0?utm_source=generator", "https://open.spotify.com/embed/track/4UOXo3xWnxYdTf3sFyRaUG?utm_source=generator", "https://open.spotify.com/embed/track/23SqoExnmW4BTJEYzMJze8?utm_source=generator", "https://open.spotify.com/embed/track/32IKJthM7ARKvGBTZCE1Et?utm_source=generator", "https://open.spotify.com/embed/track/5CQqlc5MtuFpyIiPsn3iWa?utm_source=generator", "https://open.spotify.com/embed/track/4hKWUzhQWsOkgT6LnDEASe?utm_source=generator", "https://open.spotify.com/embed/track/1FuJKBi6XdFyf8Yzmck468?utm_source=generator"];
-        list_of_views = [74084145, 217773682, 124554682, 42763828, 6770284, 210428952, 81121838]
+        let scoreplus = 0;
+        let scoreminus = 0;
+        list_of_songs = ["https://open.spotify.com/embed/track/1087UErO9Zd3s6zvWu4FL0?utm_source=generator", 
+        "https://open.spotify.com/embed/track/4UOXo3xWnxYdTf3sFyRaUG?utm_source=generator", 
+        "https://open.spotify.com/embed/track/23SqoExnmW4BTJEYzMJze8?utm_source=generator", 
+        "https://open.spotify.com/embed/track/32IKJthM7ARKvGBTZCE1Et?utm_source=generator", 
+        "https://open.spotify.com/embed/track/5CQqlc5MtuFpyIiPsn3iWa?utm_source=generator", 
+        "https://open.spotify.com/embed/track/4hKWUzhQWsOkgT6LnDEASe?utm_source=generator", 
+        "https://open.spotify.com/embed/track/1FuJKBi6XdFyf8Yzmck468?utm_source=generator",
+        "https://open.spotify.com/embed/track/3dy7SaVShdnjwtx9IXhtzg?utm_source=generator",
+        "https://open.spotify.com/embed/track/6hw1Sy9wZ8UCxYGdpKrU6M?utm_source=generator",
+        "https://open.spotify.com/embed/track/2jgz8ebzp6aY7fW7hWAXaO?utm_source=generator",
+        "https://open.spotify.com/embed/track/0TfOxUWy4YOe4dsZPIdUcl?utm_source=generator",
+        "https://open.spotify.com/embed/track/4YZxwEHbmwwgdvhAUDwFXz?utm_source=generator",
+        "https://open.spotify.com/embed/track/4SF1K7VfTBnVSEyBCrrUWK?utm_source=generator",
+        "https://open.spotify.com/embed/track/3tv1DRqL9KRuIUawu6eYG0?utm_source=generator",
+        "https://open.spotify.com/embed/track/0jB0RNZIfaihaDKNmdrI40?utm_source=generator",
+        "https://open.spotify.com/embed/track/5AUNkb1jcqNn2JCSQzQ6rC?utm_source=generator",
+        "https://open.spotify.com/embed/track/50mQStZYV5QFgyGK9GOVZg?utm_source=generator",
+        "https://open.spotify.com/embed/track/67ojvEGRPAUCOohuMPqoRC?utm_source=generator",
+        "https://open.spotify.com/embed/track/7dG1T4MdtxswggvX16owFU?utm_source=generator",
+        "https://open.spotify.com/embed/track/6mw02h3qbWmuq2bJCRjRAe?utm_source=generator",
+        "https://open.spotify.com/embed/track/7G30f2Sqsgrxet5IWYLDnR?utm_source=generator",
+        "https://open.spotify.com/embed/track/4EmiHs5KnkApKW8pkfWdWW?utm_source=generator"];
+
+        list_of_views = [74084145, 217773682, 124554682, 42763828, 6770284, 210428952, 81121838, 100521757, 330721307, 63336204, 29682204, 17244845, 44957927, 27285316, 143486312, 123647602, 148094556, 169802258, 75791451, 98432226, 17066524, 53604333]
         random_number = Math.floor(Math.random() * list_of_songs.length);
         random_number2 = Math.floor(Math.random() * list_of_songs.length);
 
@@ -47,14 +86,20 @@
 
             if (list_of_views[random_number] > list_of_views[random_number2]){
                 state = "win";
-                count += 1;
+                scoreplus += 1;
             }
             else {
-                state = "loose";
-                count -= 1;
+                state = "lose";
+                scoreminus += 1;
             }
 
-            document.getElementById("score").innerHTML = count;
+            document.getElementById("scoreplus").innerHTML = scoreplus;
+            document.getElementById("scoreminus").innerHTML = scoreminus;
+
+            document.getElementById("first_streams").innerHTML = list_of_views[random_number].toLocaleString();
+            document.getElementById("second_streams").innerHTML = list_of_views[random_number2].toLocaleString();
+
+
             document.getElementById("status").innerHTML = state;
             start();
         }
@@ -62,15 +107,20 @@
         function check2(){
 
             if (list_of_views[random_number] > list_of_views[random_number2]){
-                state = "loose";
-                count -= 1;
+                state = "lose";
+                scoreminus += 1;
             }
             else {
                 state = "win";
-                count += 1;
+                scoreplus += 1;
             }
 
-            document.getElementById("score").innerHTML = count;
+            document.getElementById("scoreplus").innerHTML = scoreplus;
+            document.getElementById("scoreminus").innerHTML = scoreminus;
+
+            document.getElementById("first_streams").innerHTML = list_of_views[random_number].toLocaleString();
+            document.getElementById("second_streams").innerHTML = list_of_views[random_number2].toLocaleString();
+
             document.getElementById("status").innerHTML = state;
             start();
         }
@@ -87,6 +137,14 @@
             setTimeout(start, 0);
         };
 
+        function KeyPressCheck(event){
+            if (event.keyCode == 49) {
+                document.getElementById("first_button").click();
+            }
+            if (event.keyCode == 50){
+                document.getElementById("second_button").click();
+            }
+        }
 
     </script>
 </body>

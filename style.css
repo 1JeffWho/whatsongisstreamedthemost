@@ -1,18 +1,56 @@
 .first {
-    background-color: white;
-    size: 90%;
     margin-bottom: -4.3%;
+    color: #0F0F0F;
+    background-color: #0F0F0F;
 }
 
 .second {
-    background-color: white;
     margin-bottom: -4.3%;
+    color: #0F0F0F;
+    background-color: #0F0F0F;
 }
 
 button {
     height: 10%;
     border-radius: 12px;
     border-width: 0px;
-    background-color: grey;
+    background-color: #272727;
     font-size: 4vh;
+    color: #F1F1F1;
+}
+
+button:hover{
+    background-color: #3F3F3F;
+}
+
+button:active{
+    background-color: #535353;
+}
+
+body {
+    background-color: #0F0F0F;
+    margin-top: 5vh;
+}
+
+h1 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h2 {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h3{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #F1F1F1;
+    display: inline;
+    text-align: right;
+}
+
+h4{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #F1F1F1;
+    display: inline;
+    text-align: center;
+    font-size: 2vh;
 }
